@@ -1,0 +1,12 @@
+/**
+* CSS rules for my App
+**/
+
+[myApp] h2 {
+    
+    color: rgb(243, 104, 127,1)
+}
+
+[myApp] h2 i {
+    color: rgba(136, 36, 94, 0.795);
+}

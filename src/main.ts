@@ -14,6 +14,7 @@ import { ToHtml } from './utils/to-html';
  aelion.setAddress('Chemin de Gabardie');
  aelion.setCodePostale(31200);
  aelion.setVille('Toulouse');
+ aelion.setNumeroTel('0524569587');
 
  // Création d'une autre instance de classe
  const cap: CompanyModel = new CompanyModel();
@@ -21,6 +22,7 @@ import { ToHtml } from './utils/to-html';
  cap.setAddress('Bla bla bla');
  cap.setCodePostale(31000);
  cap.setVille('Toulouse');
+ cap.setNumeroTel('0521252698');
 
 
 
