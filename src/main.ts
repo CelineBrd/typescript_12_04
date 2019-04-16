@@ -15,6 +15,7 @@ import { ToHtml } from './utils/to-html';
  aelion.setCodePostale(31200);
  aelion.setVille('Toulouse');
  aelion.setNumeroTel('0524569587');
+ aelion.setLogo('assets/images/aelion.png');
 
  // Création d'une autre instance de classe
  const cap: CompanyModel = new CompanyModel();
@@ -23,6 +24,7 @@ import { ToHtml } from './utils/to-html';
  cap.setCodePostale(31000);
  cap.setVille('Toulouse');
  cap.setNumeroTel('0521252698');
+ cap.setLogo('assets/images/capgemini.png');
 
 
 
@@ -34,3 +36,12 @@ import { ToHtml } from './utils/to-html';
  const toHtml = new ToHtml();
  toHtml.toPage(aelion);
  toHtml.toPage(cap);
+
+ // Ecouter le click dans le document
+ const laDiv: any = document.querySelector('.click');
+ laDiv.addEventListener(
+     "click",
+     () => {
+         alert('Merci...')
+     }
+ );

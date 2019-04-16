@@ -4,9 +4,47 @@
 
 [myApp] h2 {
     
-    color: rgb(243, 104, 127,1)
+    color: rgb(1, 94, 145)
 }
 
 [myApp] h2 i {
-    color: rgba(136, 36, 94, 0.795);
+    color: rgba(121, 122, 182, 0.795);
+}
+
+[myApp] h2:hover{
+    color: blue; /** Mets en bleu les titres h2 quand tu passes la souris dessus**/
+}
+
+[myApp] i:hover{
+    color:green; /** Mets en vert ce qui est dans les balises i quand tu passes la souris dessus **/
+}
+
+.selected {
+    background-color: rgba(121, 122, 182, 0.795);
+}
+
+.company ul{
+    display: none;
+}
+
+.counter {
+    display:block;
+    width:150px;
+    line-height:50px;
+    text-align:center;
+    font-size: 3em;
+    color: rgba(121, 122, 182, 0.795);
+    text-decoration:none;
+}
+
+.down, .up, .multiply{
+    display:block;
+    border: 3px rgba(121, 122, 182, 0.795) dashed;
+    border-radius: 10px;
+    text-align:center;
+    
+}
+
+.multiplicator {
+    list-style-type: none; 
 }

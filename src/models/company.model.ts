@@ -4,7 +4,8 @@ export class CompanyModel {
     private codePostale: number;
     private ville: string;
     private numeroTel: string;
-
+    private logo: string;
+    
 
     public setName(value: string) {
         this.name = value;
@@ -43,8 +44,17 @@ export class CompanyModel {
         this.numeroTel = value;
     }
 
+    
+    public getLogo(): string{
+        return this.logo;
+    }
+    public setLogo(value: string){
+        this.logo = value;
+    }
+
     public toString(): string {
         let output: string = '<div class="col-12">';
+        output += '<img src="' + this.logo + '"/>';
         output += '<h2><i class="icon-office"></i>'+ this.name+ '</h2>';
         output += '<i class="icon-address-book"></i>' + this.addresse + '<br>';
         output += this.codePostale + '<em>' + this.ville + '</em><br>';

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Hello jQuery !</title>
+        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+
+        <link
+            href="./assets/styles.css"
+            rel="stylesheet"
+        >
+    </head>
+
+    <body>
+        <header>
+            <h1></h1>
+        </header>
+
+        <main>
+            <!-- Un compteur [+/-] on pose le décor !-->
+            <div class="counter">
+                <!-- pour décrémenter la valeur-->
+                <span class="down">
+                    -
+                </span>
+
+                <!-- La valeur elle-même -->
+                <span class="value">0</span>
+
+                <!-- pour incrémenter la valeur-->
+                <span class="up">
+                    +
+                </span>
+
+                <!--<span class="multiply">
+                    *
+                    <ul class="multiplicator">
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                </span> -->
+            </div>
+            <!-- Fin du compteur-->
+
+            <div class="company">
+                <h2>Aélion</h2>
+                <address>
+                    <p>95 chemin de Gabardie</p>
+                    <p><span class="zipcode">31000</span> <span>Toulouse</span></p>
+                </address>
+                <ul class="contact">
+                    <li>Mr James Bond</li>
+                    <li>Mr James Bond</li>
+                    <li>Mr James Bond</li>
+                </ul>
+            </div>
+
+            <div class="company">
+                <h2>CapGémini</h2>
+                <address>
+                    <p>10 rue des ESN</p>
+                    <p><span class="zipcode">31600</span> <span>Blagnac</span></p>
+                </address>
+                <ul class="contact">
+                    <li>Mr Jean Talut</li>
+                    <li>Mr Jean Talut</li>
+                    <li>Mr Jean Talut</li>
+                </ul>
+            </div>
+        </main>
+
+        <script>
+            $('h1').html('Hello jQuery'); //en JQuery
+
+            //Même chose en natif javascript en dessous
+            //const monH1 = document.querySelector('h1');
+            //monH1.innerHTML = 'Hello jQuery natif';
+
+            /* $('.company').on(
+                "click",
+                function(ev) {
+                    const theOne = $(this);
+                    let removeClass = true;
+
+                    if (!theOne.hasClass('selected')) {
+                        removeClass = false;
+                    }
+
+                    $('.company').removeClass('selected');
+
+                    if(!removeClass) {
+                        $(this).toggleClass('selected');
+                    }
+
+
+                } // ==> callback = fonction retournée par le gestionnaire d'évnmt click
+            );*/
+
+            $('.company').on(
+                "click",
+                function(ev){
+
+                    const theOne = $(this);
+                    let removeClass = true;
+
+                    if (!theOne.hasClass('selected')) {
+                        removeClass = false;
+                    }
+
+                    $('.company').removeClass('selected');
+                    $('.company ul').hide();
+
+                    if(removeClass) {
+                        $(this).removeClass('selected'); //deselectionne la classe 
+                        $(this).children('ul').hide(); // Cache tous les contacts
+                    } else {
+                        $(this).addClass('selected'); // Selectionne 
+                        $(this).children('ul').show(); // montre la liste des contacts
+                    }
+
+                }
+
+                
+            )
+            //
+            $('.up').on(
+                "click",
+                function(ev){
+                    console.info('j\'ai bien cliqué sur le bouton +');
+
+                    const value = $('.value');
+                    let nextValue = parseInt(value.html());
+
+                    if(nextValue < 10){
+                        nextValue = nextValue +1;
+                    $('.value').html(nextValue);
+                    } else {
+                        alert('valeur supérieur à 10 impossible à afficher!');
+                    }
+
+                    console.info(nextValue);
+                }
+            )
+
+            $('.down').on(
+                "click",
+                function(ev){
+                    console.info('j\'ai bien cliqué sur le bouton -');
+
+                    const value = $('.value');
+                    let nextValue = parseInt(value.html());
+
+                    if(nextValue > 0){
+                        nextValue = nextValue -1;
+                    $('.value').html(nextValue);
+                    } else {
+                        alert('valeur négative impossible à afficher!');
+                    }
+
+                    console.info(nextValue);
+                }
+                
+            )
+        </script>
+    </body>
+</html>
