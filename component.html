@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+    <head lang="fr">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,user-scalable=no">
+        
+        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+
+        <title>Compteur</title>
+
+        <link
+            href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        >
+
+        <link
+            href="./assets/style-component.css"
+            rel="stylesheet"
+        >
+    </head>
+
+    <body>
+        <header>
+            <h1>Compteur</h1>
+        </header>
+
+        
+        <main>
+            <!-- Input pour entrer la valeur max-->
+
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Entrez la valeur maximale que vous voulez donner au compteur :)</label>
+                    <input type="text" 
+                            class="form-control" 
+                            id="valeurMax"  
+                            placeholder="Valeur maximale"
+                            value="2"
+                            id="valeurMax">
+                    <small id="emailHelp" class="form-text text-muted">Attention la valeur doit être supérieure à 1 ! ;)</small>
+                </div>
+                <button type="button" class="btn btn-primary" id="buttonOkMax">OK</button>
+            </form>
+
+            <!-- Component bouton a gauche -->
+            <div class="input-group mb-3">
+                <!-- Bouton avant la zone de saisie-->
+                <div class="input-group-prepend">
+                <button class="btn btn-outline-secondary" 
+                        type="button"  
+                        id="decrease-qty">
+                    -
+                </button>
+                </div>
+
+                <!-- Zone de saisie : attribut data-max custom -->
+                <input type="text" class="form-control" placeholder="" value="1" data-max="10" readonly id="valeurCompteur">
+                
+                <!-- La valeur elle-même -->
+                <!--<span class="value">1</span>-->
+
+            
+                <!-- Bouton après la zone de saisie-->
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" 
+                            type="button" 
+                            id="increase-qty">
+                        +
+                    </button>
+                </div>
+            </div>
+
+            <!-- Message si on a atteint la borne inférieure -->
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Attention !</strong> <span class="message"></span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+        </main>
+        <!-- Intégration des ressources javascript -->
+        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="./assets/my-component.js"></script>
+    </body>
+</html>

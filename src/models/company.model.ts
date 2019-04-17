@@ -1,4 +1,11 @@
+/**
+ * @name CompanyModel
+ * @author Aélion
+ * @version 1.0.0
+ */
+
 export class CompanyModel {
+    private id: number;
     private name : string;
     private addresse: string;
     private codePostale: number;
@@ -6,6 +13,13 @@ export class CompanyModel {
     private numeroTel: string;
     private logo: string;
     
+
+    public setId(value: number) {
+        this.id = value;
+    }
+    public getId(): number {
+        return this.id;
+    }
 
     public setName(value: string) {
         this.name = value;

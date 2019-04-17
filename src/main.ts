@@ -10,6 +10,7 @@ import { ToHtml } from './utils/to-html';
 
  // Créer une instance de la classe CompanyModel
  const aelion: CompanyModel = new CompanyModel();
+ aelion.setId(1);
  aelion.setName('Aelion');
  aelion.setAddress('Chemin de Gabardie');
  aelion.setCodePostale(31200);
@@ -19,6 +20,7 @@ import { ToHtml } from './utils/to-html';
 
  // Création d'une autre instance de classe
  const cap: CompanyModel = new CompanyModel();
+ cap.setId(2);
  cap.setName('CapGemini');
  cap.setAddress('Bla bla bla');
  cap.setCodePostale(31000);
