@@ -3,11 +3,15 @@ export class ToHtml {
         // readonly ==> lecture seule
         // static ==> je peux le référencer sans avoir a faire instance de classe 
         // static readonly ===> constante de classe
-    public toPage(object: any) {
-        const htmlPlaceHolder: any = document.querySelector('[' + ToHtml.placeholder + ']');
-        let content: string = htmlPlaceHolder.innerHTML;
-        content += object.toString();
-        htmlPlaceHolder.innerHTML = content;
+    public toPage(object: any, howTo: number) {
+        const htmlPlaceHolder: JQuery = $('[' + ToHtml.placeholder + ']');
+        let content: string = htmlPlaceHolder.html();
+        content += object.toString(howTo);
+        htmlPlaceHolder.html(content);
+    }
 
+    public appendToPage(object: JQuery): void {
+        const placeholder: JQuery = $('[' + ToHtml.placeholder + ']');
+        object.appendTo(placeholder);
     }
 }

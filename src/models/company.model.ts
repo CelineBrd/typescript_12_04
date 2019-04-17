@@ -4,6 +4,8 @@
  * @version 1.0.0
  */
 
+import { OutputInterface } from "src/utils/output-interface";
+
 export class CompanyModel {
     private id: number;
     private name : string;
@@ -12,10 +14,17 @@ export class CompanyModel {
     private ville: string;
     private numeroTel: string;
     private logo: string;
+
+    private strategy: OutputInterface<CompanyModel>;
     
+    public constructor(id: number) {
+        this.id = id;
+    }
 
     public setId(value: number) {
-        this.id = value;
+        if(this.id == null) {
+             this.id = value;
+        }
     }
     public getId(): number {
         return this.id;
@@ -66,13 +75,35 @@ export class CompanyModel {
         this.logo = value;
     }
 
-    public toString(): string {
-        let output: string = '<div class="col-12">';
-        output += '<img src="' + this.logo + '"/>';
-        output += '<h2><i class="icon-office"></i>'+ this.name+ '</h2>';
-        output += '<i class="icon-address-book"></i>' + this.addresse + '<br>';
-        output += this.codePostale + '<em>' + this.ville + '</em><br>';
-        output += '<i class="icon-facebook"></i>'+ this.numeroTel +'</div>';
+
+
+    public setStrategy(strategy:OutputInterface<CompanyModel>){
+        this.strategy = strategy;
+    }
+
+    public useOutputStrategy(): JQuery {
+        return this.strategy.output(this);
+    }
+
+
+
+    public toString(howTo: number): string {
+        let output: string ;
+        if(howTo ==0) {
+            output = '<div class="col-12">'
+            output += '<img src="' + this.logo + '"/>';
+            output += '<h2><i class="icon-office"></i>'+ this.name+ '</h2>';
+            output += '<i class="icon-address-book"></i>' + this.addresse + '<br>';
+            output += this.codePostale + '<em>' + this.ville + '</em><br>';
+            output += '<i class="icon-facebook"></i>'+ this.numeroTel +'</div>';
+        } else if(howTo == 1) {
+            output = '<div class="col-12">'
+            output += '<h1>' + this.name + '</h1>';
+        } else if(howTo == 2) {
+            output = '<div class="col-12">'
+            output += '<h1>' + this.name + ' ' + this.codePostale + '</h1>';
+        }
+
         return output;
     }
 

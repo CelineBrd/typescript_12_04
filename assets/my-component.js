@@ -46,7 +46,7 @@ $('#increase-qty').on(
 
         if(nextValue < valMax){
             nextValue = nextValue +1;
-            document.getElementById("valeurCompteur").value = nextValue;
+            document.getElementById("valeurCompteur").value = nextValue; 
             $('#decrease-qty').removeAttr('disabled');
         } else {
             $('#increase-qty').attr('disabled','disabled');
