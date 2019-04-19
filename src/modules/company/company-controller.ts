@@ -28,6 +28,28 @@ export class CompanyController extends Controller implements ControllerInterface
             // En gros ==> on écoute les appuis sur les touches dans le formulaire 'company-form'
             (event: any): void => this._checkZipCode(event) 
         );
+
+        Controller.app.on(
+            'click',
+            '#company',
+            (event: any) => this._getCity(event)
+        );
+    }
+
+    private _getCity(event:any) {
+        const object: JQuery = $(event.target);
+
+        //Est ce que la cible est une liste de ligne?
+        if (object.is('li')) {
+            const ville: string = object.html();
+            console.log('Ville sélectionné :' + ville);
+            const cityField : JQuery = object.parent().parent().parent().next().children('input');
+            //const cityField: JQuery = object.find('#company-city'); 
+            //==> Ne fonctionne pas car au moment du chargement des listeners  le # nest pas chargé
+            cityField.val(ville.toString());
+            // Supprimer la liste... entiérement 
+            object.parent().remove();
+        }
     }
 
     private _checkZipCode(event: any): void {
@@ -58,6 +80,17 @@ export class CompanyController extends Controller implements ControllerInterface
                             citiesListing.push(ville.city);
                         });
                         console.log(JSON.stringify(liste));
+
+                        //Maintenant on doit envoyer la liste vers la page HTML
+                        const docking: JQuery = object.next('div');
+                        docking.children('ul').remove();
+                        const HtmlList: JQuery = ($('<ul>')).addClass('list-unstyled');
+                        liste.forEach((ville) => {
+                            let HtmlRow: JQuery = ($('<li>')).html(ville.toString());
+                            HtmlList.append(HtmlRow);
+                        })
+
+                        docking.append(HtmlList);
                     },
                     error: (xhr, error) => { //xhr donne raison des erreurs
 
