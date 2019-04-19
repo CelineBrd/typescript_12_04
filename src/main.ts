@@ -11,12 +11,19 @@ import { Table } from './geometry/table';
 import { Paintable } from './geometry/paintable-interface';
 import { Voiture } from './factory-vehicules/voiture';
 import { Moto } from './factory-vehicules/moto';
+import { Catalog } from './factory-vehicules/catalogue-repository';
+import { VehiculeFactory } from './factory-vehicules/vehicule-factory';
+import { CompanyController } from './modules/company/company-controller';
+
+
 /**
  * @name main
  * @desc Point d'entrée dans l'application
  * @author Aélion
  * @version 1.0.0
 */
+
+
 
  // Instancier un repository de companyModel
  const companyRepository: CompanyRepository = new CompanyRepository();
@@ -135,3 +142,13 @@ bmwc600.prixDeVente();
  })
  console.log('Ma marge Totale est : ' + margeTotale);
 
+
+ /**
+  * Version de Jean Luc qui fait appel aux catalogues repository plutot que de faire
+  * le tableau dans le main
+  */
+
+const catalog : Catalog = new Catalog();
+
+// Charge le formulaire de gestion de sociétés
+const companyForm: CompanyController = new CompanyController();

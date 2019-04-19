@@ -1,4 +1,4 @@
-export abstract class VehiculeFactory {
+export abstract class Vehicule {
     /**
      * @var string Libellé du type de véhicule
      */
@@ -35,7 +35,7 @@ export abstract class VehiculeFactory {
         this.coutRevient = value;
     }
 
-    
+
     public getMarge(): number {
         return this.prixDeVente() - this.coutRevient;
     }

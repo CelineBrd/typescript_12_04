@@ -1,6 +1,6 @@
-import { VehiculeFactory } from "./vehiculeFactory";
+import { Vehicule } from "./vehicule";
 
-export class Voiture extends VehiculeFactory{
+export class Voiture extends Vehicule{
 
     public constructor(name: string) {
         super();
