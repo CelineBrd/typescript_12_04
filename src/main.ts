@@ -109,6 +109,12 @@ import { CompanyController } from './modules/company/company-controller';
 
  //Vehicule Factory
 
+ /**
+  * Ma version 
+  * avec trop d'actions dans le main 
+  * Jean Luc a expliqué qu'il faut donner le plus de travail plutôt aux déf de classe et non au main!
+  */
+
  // Création instance peugeot 107
  const peugeot107: Voiture = new Voiture('Peugeot 107');
  peugeot107.setCoutRevient(8000);
@@ -150,5 +156,11 @@ bmwc600.prixDeVente();
 
 const catalog : Catalog = new Catalog();
 
+catalog.add(peugeot107);
+catalog.add(bmwc600);
+
+console.log(catalog.catalogue());
+console.log('Ma marge totale est : ' + catalog.getMargeTotale());
+
 // Charge le formulaire de gestion de sociétés
-const companyForm: CompanyController = new CompanyController();
+//const companyForm: CompanyController = new CompanyController();

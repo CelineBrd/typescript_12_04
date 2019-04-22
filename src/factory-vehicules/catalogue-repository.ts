@@ -10,7 +10,7 @@ export class Catalog {
    }
 
    public catalogue(): string {
-       let listing: string;
+       let listing: string = '';
 
        this.catalog.forEach((vehicule) => {
            if (vehicule instanceof Voiture) {
@@ -18,7 +18,7 @@ export class Catalog {
            } else {
                listing += 'Moto ';
            }
-           listing += vehicule.getNom() + ' Prix catalogue : ' + vehicule.prixDeVente() + '\n';
+           listing += vehicule.getNom() + ' Prix catalogue : ' + vehicule.prixDeVente() + '€\n';
        });
        return listing;
    }
